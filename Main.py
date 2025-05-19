@@ -1,16 +1,7 @@
 
-#import keyboard
-#
-#class Main():
-#
-#    event = keyboard.hook()
-#
-#    if event.event_type == 'down' and event.name == 'F':
-#        print("f")
-#    
 
 import keyboard
-import time
+import datetime
 
 class Main:
     def __init__(self):
