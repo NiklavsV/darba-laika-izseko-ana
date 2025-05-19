@@ -9,7 +9,7 @@ class Main:
         self.onn = False
         pass
 
-    def on_f13_press(self, event):
+    def on_key_press(self, event):
         
         if event.name == 'f13':
             now = datetime.now()
@@ -25,12 +25,16 @@ class Main:
                 print(evtime)
                 with open("laiki.txt", "a") as timestxt:
                     timestxt.write(evtime + 'end' + '\n')
+
+        
                 
 
     def start(self):
-        print("Press f13 to detect. Press ESC to stop.")
-        keyboard.on_press(self.on_f13_press)
+        print("Press f13 to toggle work mode. Press ESC to stop.")
+        keyboard.on_press(self.on_key_press)
         keyboard.wait('esc')
+        self.stop()
+
 
     def stop(self):
         keyboard.unhook_all()
