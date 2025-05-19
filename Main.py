@@ -6,17 +6,26 @@ from datetime import *
 class Main:
 
     def __init__(self):
+        self.onn = False
         pass
 
     def on_f13_press(self, event):
-        onn = False
+        
         if event.name == 'f13':
             now = datetime.now()
             evtime = now.strftime("%Y/%m/%d %H:%M")
-            print("f13 key was pressed!")
-            onn = not onn
-            if onn == True:
+            self.onn = not self.onn
+            print(self.onn)
+            if self.onn == True:
                 print(evtime)
+                with open("laiki.txt", "a") as timestxt:
+                    timestxt.write(evtime + 'start' + ' --- ')
+
+            elif self.onn == False:
+                print(evtime)
+                with open("laiki.txt", "a") as timestxt:
+                    timestxt.write(evtime + 'end' + '\n')
+                
 
     def start(self):
         print("Press f13 to detect. Press ESC to stop.")
