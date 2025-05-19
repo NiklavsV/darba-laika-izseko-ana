@@ -19,12 +19,12 @@ class Main:
             if self.onn == True:
                 print(evtime)
                 with open("laiki.txt", "a") as timestxt:
-                    timestxt.write(evtime + 'start' + ' --- ')
+                    timestxt.write(evtime + '  start' + ' --- ')
 
             elif self.onn == False:
                 print(evtime)
                 with open("laiki.txt", "a") as timestxt:
-                    timestxt.write(evtime + 'end' + '\n')
+                    timestxt.write(evtime + '  end' + '\n')
 
         
                 
