@@ -14,21 +14,28 @@ class Main:
         if event.name == 'f13':
             now = datetime.now()
             evtime = now.strftime("%Y/%m/%d %H:%M")
+
+            
             self.onn = not self.onn
             print(self.onn)
+
+
             if self.onn == True:
                 print(evtime)
                 with open("laiki.txt", "a") as timestxt:
                     timestxt.write(evtime + '  start' + ' --- ')
+                self.starttime = now
+
 
             elif self.onn == False:
                 print(evtime)
+                endtime = now
+                tspent = (endtime - self.starttime)
+                hours = tspent.total_seconds() / 3600
                 with open("laiki.txt", "a") as timestxt:
-                    timestxt.write(evtime + '  end' + '\n')
-
+                    timestxt.write(f'{evtime} end {hours} &\n')
         
                 
-
     def start(self):
         print("Press f13 to toggle work mode. Press ESC to stop.")
         keyboard.on_press(self.on_key_press)
@@ -39,8 +46,6 @@ class Main:
     def stop(self):
         keyboard.unhook_all()
         print("Stopped detecting key presses.")
-
-
 
 
 if __name__ == "__main__":
