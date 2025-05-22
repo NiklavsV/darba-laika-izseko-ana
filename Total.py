@@ -26,10 +26,12 @@ class aggregate:
                     
                     else:
                         with open('stundas.txt', 'a') as hours_file:
-                            hours_file.write(f'datums {current_date} - stundas {date_hours}')
+                            hours_file.write(f'datums {current_date} - stundas {date_hours} \n')
                         date_hours = 0
                         current_date = this_date
-                pass
+                if current_date is not None:
+                    with open('stundas.txt', 'a') as hours_file:
+                        hours_file.write(f'datums {current_date} - stundas {date_hours}\n')
 
 
 
@@ -44,4 +46,5 @@ class aggregate:
         keyboard.unhook_all()
         print("Stopped detecting key presses.")
 
-aggregate.start()
+main = aggregate()
+main.start()
