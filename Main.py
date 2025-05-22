@@ -33,7 +33,7 @@ class Main:
                 tspent = (endtime - self.starttime)
                 hours = tspent.total_seconds() / 3600
                 with open("laiki.txt", "a") as timestxt:
-                    timestxt.write(f'{evtime} end {hours} &\n')
+                    timestxt.write(f'{evtime} end {hours} \n')
         
                 
     def start(self):

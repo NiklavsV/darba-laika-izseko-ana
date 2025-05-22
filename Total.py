@@ -10,7 +10,25 @@ class aggregate:
         
         if event.name == 'f14':
             with open("laiki.txt","r") as Timefile:
+                current_date = None
+                date_hours = 0
+                for line in Timefile:
+                    parts = line.strip().split()
+                    this_date = parts[0]
+                    these_hours = parts[-1]
 
+                    if this_date == current_date:
+                        date_hours += these_hours
+                    
+                    elif current_date == None:
+                        current_date = this_date
+                        date_hours = these_hours
+                    
+                    else:
+                        with open('stundas.txt', 'a') as hours_file:
+                            hours_file.write(f'datums {current_date} - stundas {date_hours}')
+                        date_hours = 0
+                        current_date = this_date
                 pass
 
 
